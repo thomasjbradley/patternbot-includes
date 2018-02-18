@@ -8,6 +8,13 @@
 const patternBotIncludes = function (manifest) {
   'use strict';
 
+  let downloadedAssets = {};
+
+  const downloadHandler = function (e) {
+    e.target.removeEventListener('load', downloadHandler);
+    downloadedAssets[e.target.getAttribute('href')] = true;
+  };
+
   const findRootPath = function () {
     const rootMatcher = /\/common\//;
     const allScripts = document.querySelectorAll('script:not([type])');
@@ -24,8 +31,12 @@ const patternBotIncludes = function (manifest) {
   const addCssFile = function (href) {
     const newLink = document.createElement('link');
 
+    downloadedAssets[href] = false;
+
     newLink.setAttribute('rel', 'stylesheet');
     newLink.setAttribute('href', href);
+    newLink.addEventListener('load', downloadHandler);
+
     document.head.appendChild(newLink);
   }
 
@@ -128,11 +139,11 @@ const patternBotIncludes = function (manifest) {
   };
 
   const hideLoadingScreen = function () {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
+    const allDownloadedInterval = setInterval(() => {
+      if (Object.values(downloadedAssets).includes(false)) return;
 
-      });
-    });
+      clearInterval(allDownloadedInterval);
+    }, 50);
   };
 
   const findAllPatternTags = function () {
@@ -154,6 +165,8 @@ const patternBotIncludes = function (manifest) {
   const buildPatternFetchPromises = function (allPatternUrls) {
     return allPatternUrls.map((url) => {
       return new Promise((resolve, reject) => {
+        downloadedAssets[url] = false;
+
         fetch(url).then((resp) => {
           if (resp.status >= 200 && resp.status <= 299) {
             return resp.text();
@@ -165,6 +178,7 @@ const patternBotIncludes = function (manifest) {
             return '';
           }
         }).then(function (html) {
+          downloadedAssets[url] = true;
           resolve(html);
         }).catch((e) => {
           console.group('Download error');
