@@ -13,6 +13,7 @@ const patternBotIncludes = function (manifest) {
     cssId: 'patternbot-loading-screen-css',
     get css() { return `
       div#${loadingScreenConfig.id} {
+        all: initial;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -34,6 +35,7 @@ const patternBotIncludes = function (manifest) {
       }
 
       h1#patternbot-loading-screen-title {
+        all: initial;
         margin: 0;
         padding: 0;
         background-color: transparent;
@@ -50,19 +52,21 @@ const patternBotIncludes = function (manifest) {
         height: 64px;
         width: 64px;
         opacity: .8;
-        color: rgba(${manifest.commonInfo.interfaceColours.primary}, ${manifest.commonInfo.interfaceColours.primary}, ${manifest.commonInfo.interfaceColours.primary}, 1);
+        fill: rgba(${manifest.commonInfo.interfaceColours.primary}, ${manifest.commonInfo.interfaceColours.primary}, ${manifest.commonInfo.interfaceColours.primary}, 1);
       }
 
       path#patternbot-loading-gears-top {
         opacity: .5;
         animation: patternbot-loading-spin 2s linear infinite;
         transform-origin: 80.8px 80.8px;
+        fill: rgba(${manifest.commonInfo.interfaceColours.primary}, ${manifest.commonInfo.interfaceColours.primary}, ${manifest.commonInfo.interfaceColours.primary}, 1);
       }
 
       path#patternbot-loading-gears-bottom {
         opacity: .7;
         animation: patternbot-loading-spin 2s linear reverse infinite;
         transform-origin: 176.3px 176.3px;
+        fill: rgba(${manifest.commonInfo.interfaceColours.primary}, ${manifest.commonInfo.interfaceColours.primary}, ${manifest.commonInfo.interfaceColours.primary}, 1);
       }
 
       @keyframes patternbot-loading-spin {
