@@ -66,15 +66,8 @@ const patternBotIncludes = function (manifest) {
       }
 
       @keyframes patternbot-loading-spin {
-
-        0% {
-          transform: rotate(0);
-        }
-
-        100% {
-          transform: rotate(360deg);
-        }
-
+        0% { transform: rotate(0); }
+        100% { transform: rotate(360deg); }
       }
     `},
     get html() { return `
