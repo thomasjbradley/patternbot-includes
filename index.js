@@ -173,7 +173,7 @@ const patternBotIncludes = function (manifest) {
 
   const htmlStringToElem = function (html) {
     const doc = (new DOMParser()).parseFromString(html, 'text/html');
-    return doc.body.firstElementChild;
+    return doc.body;
   };
 
   const replaceElementValue = function (elem, sel, data) {
@@ -220,7 +220,7 @@ const patternBotIncludes = function (manifest) {
       }
     });
 
-    patternElem.parentNode.replaceChild(patternOutElem, patternElem);
+    patternElem.parentNode.replaceChild(patternOutElem.firstElementChild, patternElem);
   };
 
   const showLoadingScreen = function () {
