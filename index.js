@@ -140,9 +140,12 @@ const patternBotIncludes = function (manifest) {
 
   const getPatternInfo = function (patternElem) {
     let patternInfoJson;
+    const data = patternElem.innerText.trim();
+
+    if (!data) return {}
 
     try {
-      patternInfoJson = JSON.parse(patternElem.innerText);
+      patternInfoJson = JSON.parse(data);
       return patternInfoJson;
     } catch (e) {
       console.group('JSON error in pattern include');
@@ -200,6 +203,15 @@ const patternBotIncludes = function (manifest) {
       const isAttributeSelector = /\[.*\]/.test(sel);
       const jsSel = sel.replace(/\[.*:/, '[*|');
       const elem = patternOutElem.querySelector(jsSel);
+
+      if (!elem) {
+        console.group('Cannot find element');
+        console.log(`Selector: ${sel}`);
+        console.log(`Pattern: ${patternDetails.name}`);
+        console.log(JSON.stringify(patternData, null, 2));
+        console.groupEnd();
+        return;
+      }
 
       if (isAttributeSelector) {
         replaceAttributeValue(elem, sel, patternData[sel]);
@@ -259,7 +271,7 @@ const patternBotIncludes = function (manifest) {
           if (resp.status >= 200 && resp.status <= 299) {
             return resp.text();
           } else {
-            console.group('Download error');
+            console.group('Cannot location pattern');
             console.log(resp.url);
             console.log(`Error ${resp.status}: ${resp.statusText}`);
             console.groupEnd();
