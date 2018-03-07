@@ -5,6 +5,14 @@ Patternbot includes adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [Unreleased]
+
+### Changed
+
+- Small code fixes, adding missing semi-colons, removing extra `break`, etc.
+
+---
+
 ## [1.0.0]
 
 ### Added
