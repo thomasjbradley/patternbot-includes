@@ -7,4 +7,4 @@ A JavaScript, in browser companion to Patternbot for making templates & includin
 ## Copyright & licenses
 
 © 2018 Thomas J Bradley
-[Licensed under the MIT License](LICENSE)
+<br>[Licensed under the MIT License](LICENSE)
