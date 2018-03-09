@@ -174,7 +174,7 @@ const patternBotIncludes = function (manifest) {
     let theSelector = elem.tagName.toLowerCase();
 
     if (elem.id) theSelector += `#${elem.id}`;
-    if (elem.getAttribute('role')) theSelector += `role="${elem.getAttribute('role')}"`;
+    if (elem.getAttribute('role')) theSelector += `[role="${elem.getAttribute('role')}"]`;
     if (elem.classList.length > 0) theSelector += `.${[].join.call(elem.classList, '.')}`;
 
     theSelector += ':first-of-type';
