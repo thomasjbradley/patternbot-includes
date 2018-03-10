@@ -7,6 +7,10 @@ Patternbot includes adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Add `href`/`src`/`url` path correction to change from `../../` to just `../`
+
 ### Changed
 
 - Small code fixes, adding missing semi-colons, removing extra `break`, etc.
