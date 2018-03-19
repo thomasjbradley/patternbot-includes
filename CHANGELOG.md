@@ -5,7 +5,15 @@ Patternbot includes adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## [1.1.0]
+## [1.1.1] — 2018-03-19
+
+### Fixed
+
+- Fix a typo in one of the error messages.
+
+---
+
+## [1.1.0] — 2018-03-10
 
 ### Added
 
@@ -21,7 +29,7 @@ Patternbot includes adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## [1.0.0]
+## [1.0.0] — 2018-02-18
 
 ### Added
 
