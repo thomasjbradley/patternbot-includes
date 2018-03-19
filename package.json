@@ -1,6 +1,6 @@
 {
   "name": "patternbot-includes",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "description": "A JavaScript, in browser companion to Patternbot for making templates & including patterns.",
   "author": "Thomas J Bradley <hey@thomasjbradley.ca>",
