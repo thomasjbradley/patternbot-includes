@@ -5,6 +5,14 @@ Patternbot includes adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [Unreleased]
+
+### Added
+
+- Bind all the JavaScript files from the `common` folder & patterns into `<script>` tags on the page after all the patterns have been added.
+
+---
+
 ## [1.1.1] — 2018-03-19
 
 ### Fixed
