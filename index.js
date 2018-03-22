@@ -202,9 +202,9 @@ const patternBotIncludes = function (manifest) {
       return patternInfoJson;
     } catch (e) {
       console.group('JSON error in pattern include');
-      console.log(patternElem.dataset.pattern);
-      console.log(patternElem.innerText);
-      console.log(e);
+      console.error(patternElem.dataset.pattern);
+      console.error(patternElem.innerText);
+      console.error(e);
       console.groupEnd();
       return {};
     }
@@ -300,9 +300,9 @@ const patternBotIncludes = function (manifest) {
 
       if (!elem) {
         console.group('Cannot find element');
-        console.log(`Selector: ${sel}`);
-        console.log(`Pattern: ${patternDetails.name}`);
-        console.log(JSON.stringify(patternData, null, 2));
+        console.error(`Selector: ${sel}`);
+        console.error(`Pattern: ${patternDetails.name}`);
+        console.error(JSON.stringify(patternData, null, 2));
         console.groupEnd();
         return;
       }
@@ -366,8 +366,8 @@ const patternBotIncludes = function (manifest) {
             return resp.text();
           } else {
             console.group('Cannot locate pattern');
-            console.log(resp.url);
-            console.log(`Error ${resp.status}: ${resp.statusText}`);
+            console.error(resp.url);
+            console.error(`Error ${resp.status}: ${resp.statusText}`);
             console.groupEnd();
             return '';
           }
@@ -376,8 +376,8 @@ const patternBotIncludes = function (manifest) {
           resolve(html);
         }).catch((e) => {
           console.group('Download error');
-          console.log(url);
-          console.log(e);
+          console.error(url);
+          console.error(e);
           console.groupEnd();
           resolve('');
         });
@@ -401,7 +401,7 @@ const patternBotIncludes = function (manifest) {
         resolve(allPatterns);
       }).catch((e) => {
         console.group('Pattern load error');
-        console.log(e);
+        console.error(e);
         console.groupEnd();
         resolve(allPatterns);
       });
@@ -431,7 +431,7 @@ const patternBotIncludes = function (manifest) {
       hideLoadingScreen();
     }).catch((e) => {
       console.group('Pattern load error');
-      console.log(e);
+      console.error(e);
       console.groupEnd();
     });
   };

@@ -5,6 +5,14 @@ Patternbot includes adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [Unreleased]
+
+### Changed
+
+- Made the logged error messages use `console.error()` for better clarity.
+
+---
+
 ## [1.2.0] — 2018-03-21
 
 ### Added
